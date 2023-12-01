@@ -1,8 +1,16 @@
 import { getProviders, signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 export default function LoginPage({ providers }) {
-  const { data: session, status } = useSession();
-  console.log({ session, status });
+  const { data ,status } = useSession();
+  const router = useRouter()
+if(status === "loading" )
+{
+  return "";
+}
+if (data) {
+  router.push('/');
+}
 
   return (
     <div className="flex items-center justify-center h-screen">
