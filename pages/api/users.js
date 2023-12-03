@@ -4,7 +4,8 @@ import User from "../../models/user";
 export default async function handle(req,res){
     await initmongoose();
     if(req.method === 'PUT'){
-        res.json('ok');
+        const {username} = req.body;
+        res.json({username});
     }
     if(req.mathod === 'GET')
     {
